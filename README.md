@@ -4,7 +4,7 @@ A modern and responsive Counter Application built using **React** and **Redux To
 
 ---
 
-## 🚀 Features
+##  Features
 
 - Increment counter
 - Decrement counter
@@ -16,7 +16,7 @@ A modern and responsive Counter Application built using **React** and **Redux To
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 - React
 - Redux Toolkit
@@ -24,5 +24,38 @@ A modern and responsive Counter Application built using **React** and **Redux To
 - CSS3
 
 ---
+##  Project Structure
 
-## 📂 Project Structure
+```
+src/
+│
+├── Feature/
+│ └── CounterSlice.js
+│
+├── App.jsx
+├── App.css
+├── main.jsx
+└── store/
+└── store.js
+```
+
+---
+
+##  How It Works
+
+- Redux Toolkit `createSlice` manages counter state.
+- Actions: `increment`, `decrement`, `reset`, `incrementByAmount`
+- `useSelector` reads state.
+- `useDispatch` updates state.
+- Global store configured using `configureStore`.
+
+---
+
+##  UI Overview
+
+- Gradient background
+- Centered card layout
+- Styled buttons with hover effects
+- Number input for custom increment
+
+---
