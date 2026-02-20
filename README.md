@@ -59,3 +59,18 @@ src/
 - Number input for custom increment
 
 ---
+##  Description
+
+Redux Counter App is a structured frontend application built with React and Redux Toolkit to demonstrate modern state management practices.
+
+The application uses a centralized Redux store to manage counter state. All state updates are handled through clearly defined slice reducers and dispatched actions, ensuring predictable and maintainable state transitions.
+
+The project highlights:
+
+- Implementation of `createSlice` for defining reducers and actions
+- Store configuration using `configureStore`
+- Integration of Redux with React via `useSelector` and `useDispatch`
+- Controlled form input for dynamic state updates
+- Clean UI structure with modular styling
+
+This project serves as a foundational example for understanding scalable state management in React applications.
