@@ -1,53 +1,67 @@
 import { useState } from 'react'
 import './App.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment , incrementByAmount, reset } from './Feature/CounterSlice';
+import { decrement, increment, incrementByAmount, reset } from './Feature/CounterSlice';
 
 function App() {
-  const [amount , setamount] = useState();
-  const count = useSelector((state)=> state.counter.value);
-  const dishpach = useDispatch();
-  function handleincrement(){
-    dishpach(increment());
+  const [amount, setAmount] = useState("");
+  const count = useSelector((state) => state.counter.value);
+  const dispatch = useDispatch();
+
+  function handleIncrement() {
+    dispatch(increment());
   }
 
-   function handledicrement(){
-    dishpach(decrement());
+  function handleDecrement() {
+    dispatch(decrement());
   }
 
-  function handleRestart(){
-    dishpach(reset());
+  function handleReset() {
+    dispatch(reset());
   }
 
-  function handleamount(){
-    dishpach(incrementByAmount(amount));
+  function handleAmount() {
+    if (amount === "") return;
+    dispatch(incrementByAmount(amount));
+    setAmount("");
   }
-
- 
 
   return (
-    <div>
-      <button onClick={handleincrement}>+</button>
-      <p>count is :{count}</p>
-      <button onClick={handledicrement}>-</button>
-      <br />
-      <br />
+    <div className="container">
+      <div className="card">
+        <h1 className="title">Redux Counter App</h1>
 
-      <button onClick={handleRestart}>Restart</button>
+        <div className="counter-display">
+          <h2>{count}</h2>
+        </div>
 
-      <br />
-      <br />
-      <input type="number"
-      value={amount} 
-      placeholder='enter amount'
-      onChange={(e) => setamount(e.target.value)}/>
+        <div className="button-group">
+          <button className="btn primary" onClick={handleIncrement}>+</button>
+          <button className="btn danger" onClick={handleDecrement}>-</button>
+        </div>
 
-      <br />
-      <br />
-      <button onClick={handleamount}>inc by amount</button>
+        <button className="btn reset" onClick={handleReset}>
+          Reset Counter
+        </button>
 
+        <div className="amount-section">
+          <input
+            type="number"
+            value={amount}
+            placeholder="Enter amount"
+            onChange={(e) => setAmount(e.target.value)}
+          />
+          <button className="btn success" onClick={handleAmount}>
+            Add Amount
+          </button>
+        </div>
+
+        <p className="info">
+          This counter uses Redux Toolkit for global state management.
+        </p>
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
